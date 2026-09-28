@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BayOne Auto Workshop — East Legon, Accra</title>
+  <meta name="description" content="BayOne Auto Workshop — professional car repairs, auto electrical, spray painting and more in East Legon, Accra." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --grey: #6b7280;
+      --light: #f9fafb;
+      --border: #e5e7eb;
+      --accent: #e63946;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+    }
+
+    .nav-logo {
+      color: var(--white);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--black);
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      padding: 100px 5% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(230,57,70,0.12) 0%, transparent 60%);
+    }
+
+    .hero-eyebrow {
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      color: var(--white);
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 span { color: var(--accent); }
+
+    .hero p {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.125rem;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.875rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: opacity 0.2s, transform 0.1s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.25);
+      color: var(--white);
+      padding: 0.875rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
+
+    .hero-badge {
+      position: absolute; bottom: 2rem; right: 5%;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 5%; }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--grey);
+      font-size: 1rem;
+      max-width: 520px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--light); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      color: var(--grey);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* ── WHY ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .why-item { text-align: center; }
+
+    .why-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+    }
+
+    .why-item h4 { font-weight: 700; margin: 0.25rem 0; }
+
+    .why-item p { color: var(--grey); font-size: 0.875rem; }
+
+    /* ── LOCATION ── */
+    #location { background: var(--black); color: var(--white); }
+
+    #location .section-title { color: var(--white); }
+    #location .section-sub { color: rgba(255,255,255,0.55); }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .location-detail {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      align-items: flex-start;
+    }
+
+    .location-detail-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .location-detail h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.25rem;
+    }
+
+    .location-detail p, .location-detail a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .location-detail a:hover { color: var(--accent); }
+
+    .map-frame {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .map-frame iframe {
+      width: 100%; height: 320px;
+      border: none; display: block;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--light); }
+
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .contact-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: block;
+    }
+
+    .contact-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .contact-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .contact-card h3 { font-weight: 700; margin-bottom: 0.25rem; }
+    .contact-card p { color: var(--grey); font-size: 0.875rem; }
+
+    .contact-card.whatsapp { border-color: #25d366; }
+    .contact-card.whatsapp:hover { background: #f0fdf4; }
+    .contact-card.call { border-color: var(--accent); }
+    .contact-card.call:hover { background: #fff5f5; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 2rem 5%;
+      font-size: 0.8rem;
+    }
+
+    footer strong { color: rgba(255,255,255,0.8); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .location-grid { grid-template-columns: 1fr; }
+      .hero { padding: 90px 5% 50px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Bay<span>One</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="https://wa.me/233555066066" target="_blank" class="nav-cta">WhatsApp Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Auto Workshop — East Legon, Accra</p>
+    <h1>Your Car<br />Deserves <span>Better.</span></h1>
+    <p>Professional vehicle repairs, auto electrical, spray painting and more — done right, done fast.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/233555066066?text=Hello%20BayOne%2C%20I%20need%20help%20with%20my%20car." target="_blank" class="btn-primary">Book via WhatsApp</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+    <p class="hero-badge">Dzorwulu Rd · East Legon · Accra</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <p class="section-label">What We Do</p>
+    <h2 class="section-title">Full-Range<br />Auto Services</h2>
+    <p class="section-sub">From routine maintenance to complex repairs — our certified technicians handle it all.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>General Mechanical Repairs</h3>
+        <p>Engine diagnostics, brakes, suspension, gearbox, clutch and all mechanical faults.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Auto Electrical</h3>
+        <p>Wiring, battery, alternator, starter motor, ECU diagnostics and all electrical systems.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Spray Painting & Panel Beating</h3>
+        <p>Professional body repairs, dent removal, and high-quality spray finishing.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛞</div>
+        <h3>Tyres & Vulcanizing</h3>
+        <p>Tyre fitting, balancing, rotation, patching and all tyre-related services.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🪑</div>
+        <h3>Upholstery</h3>
+        <p>Seat repairs, interior retrimming and custom upholstery work.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3>Vehicle Inspection</h3>
+        <p>Pre-purchase inspection and full vehicle health checks with written report.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <p class="section-label">Why BayOne</p>
+    <h2 class="section-title">Quality You Can<br />Count On</h2>
+    <p class="section-sub">We combine skilled technicians, genuine parts and honest pricing to give your vehicle the care it deserves.</p>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-number">6+</div>
+        <h4>Skilled Technicians</h4>
+        <p>Specialists across every trade</p>
+      </div>
+      <div class="why-item">
+        <div class="why-number">100%</div>
+        <h4>Honest Pricing</h4>
+        <p>No hidden charges, ever</p>
+      </div>
+      <div class="why-item">
+        <div class="why-number">Fast</div>
+        <h4>Quick Turnaround</h4>
+        <p>Most jobs done same day</p>
+      </div>
+      <div class="why-item">
+        <div class="why-number">All</div>
+        <h4>All Vehicle Makes</h4>
+        <p>Japanese, European, American</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location">
+    <p class="section-label">Find Us</p>
+    <h2 class="section-title">We're Easy<br />to Find</h2>
+    <p class="section-sub">2 minutes from Living Room Restaurant off Trinity Road, Bawleshie.</p>
+
+    <div class="location-grid">
+      <div>
+        <div class="location-detail">
+          <span class="location-detail-icon">📍</span>
+          <div>
+            <h4>Address</h4>
+            <p>Dzanifio Street, East Legon-Bawaleshi Street<br />Bawleshie, Accra</p>
+          </div>
+        </div>
+        <div class="location-detail">
+          <span class="location-detail-icon">📞</span>
+          <div>
+            <h4>Phone / WhatsApp</h4>
+            <a href="tel:+233555066066">+233 555 066 066</a>
+          </div>
+        </div>
+        <div class="location-detail">
+          <span class="location-detail-icon">🕐</span>
+          <div>
+            <h4>Working Hours</h4>
+            <p>Monday – Saturday: 7:00 AM – 6:00 PM<br />Sunday: By appointment</p>
+          </div>
+        </div>
+        <div class="location-detail">
+          <span class="location-detail-icon">🗺️</span>
+          <div>
+            <h4>Directions</h4>
+            <a href="https://maps.app.goo.gl/1dSKYhyYHqmiCCR26" target="_blank">Open in Google Maps →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.4!2d-0.152!3d5.618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zBayOne+Auto+Workshop!5e0!3m2!1sen!2sgh!4v1"
+          allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title">Ready to Book?</h2>
+    <p class="section-sub">Drop us a message on WhatsApp or give us a call — we'll get back to you right away.</p>
+
+    <div class="contact-cards">
+      <a href="https://wa.me/233555066066?text=Hello%20BayOne%2C%20I%20need%20help%20with%20my%20car." target="_blank" class="contact-card whatsapp">
+        <div class="icon">💬</div>
+        <h3>WhatsApp</h3>
+        <p>+233 555 066 066<br />Tap to start a chat</p>
+      </a>
+      <a href="tel:+233555066066" class="contact-card call">
+        <div class="icon">📞</div>
+        <h3>Call Us</h3>
+        <p>+233 555 066 066<br />Mon – Sat, 7am – 6pm</p>
+      </a>
+      <a href="https://maps.app.goo.gl/1dSKYhyYHqmiCCR26" target="_blank" class="contact-card">
+        <div class="icon">📍</div>
+        <h3>Visit Us</h3>
+        <p>Dzanifio St, Bawleshie<br />East Legon, Accra</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>BayOne Auto Workshop</strong> · Bawleshie, East Legon, Accra · +233 555 066 066</p>
+    <p style="margin-top:0.5rem;">© 2026 BayOne. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
