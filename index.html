@@ -40,14 +40,15 @@
     }
 
     .nav-logo {
-      color: var(--white);
-      font-weight: 800;
-      font-size: 1.25rem;
-      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
       text-decoration: none;
     }
 
-    .nav-logo span { color: var(--accent); }
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+    }
 
     .nav-links { display: flex; gap: 2rem; list-style: none; }
 
@@ -393,7 +394,7 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">Bay<span>One</span></a>
+    <a href="#" class="nav-logo"><img src="img/logo.png" alt="BayOne Auto Shop" /></a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#why">Why Us</a></li>
