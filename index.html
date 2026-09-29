@@ -362,8 +362,8 @@
     /* ── GALLERY ── */
     .gallery {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      grid-template-rows: 240px 240px;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 220px;
       gap: 0.75rem;
       margin-top: 3rem;
     }
@@ -374,7 +374,8 @@
       background: var(--border);
     }
 
-    .gallery-item:first-child { grid-row: span 2; }
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .gallery-item:nth-child(6) { grid-column: span 2; }
 
     .gallery-item img {
       width: 100%; height: 100%;
@@ -385,16 +386,162 @@
 
     .gallery-item:hover img { transform: scale(1.04); }
 
+    /* ── FOOTER ── */
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.2fr;
+      gap: 3rem;
+      padding: 4rem 5% 3rem;
+      background: var(--black);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-brand img {
+      height: 54px;
+      width: auto;
+      margin-bottom: 1rem;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-brand p {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.875rem;
+      line-height: 1.7;
+      max-width: 260px;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-social { display: flex; gap: 0.75rem; }
+
+    .footer-social a {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .footer-social a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(230,57,70,0.08);
+    }
+
+    .footer-col h5 {
+      color: rgba(255,255,255,0.9);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-col ul li { margin-bottom: 0.6rem; }
+
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover { color: rgba(255,255,255,0.85); }
+
+    .footer-contact-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      margin-bottom: 0.9rem;
+    }
+
+    .footer-contact-item i {
+      color: var(--accent);
+      font-size: 0.85rem;
+      margin-top: 3px;
+      width: 14px;
+      flex-shrink: 0;
+    }
+
+    .footer-contact-item span, .footer-contact-item a {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.875rem;
+      text-decoration: none;
+      line-height: 1.5;
+      transition: color 0.2s;
+    }
+
+    .footer-contact-item a:hover { color: rgba(255,255,255,0.85); }
+
+    .footer-bottom {
+      background: var(--black);
+      padding: 1.25rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer-bottom p {
+      color: rgba(255,255,255,0.25);
+      font-size: 0.775rem;
+    }
+
+    .footer-bottom .slogan {
+      color: rgba(255,255,255,0.35);
+      font-size: 0.775rem;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-bottom .slogan em { color: var(--accent); font-style: normal; }
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem 0.5rem;
+      color: var(--white);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
     /* ── MOBILE ── */
     @media (max-width: 768px) {
-      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 76px; left: 0; right: 0;
+        background: rgba(10,10,10,0.98);
+        backdrop-filter: blur(8px);
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 0.5rem 0 1rem;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        z-index: 99;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; text-align: center; }
+      .nav-links a { display: block; padding: 0.85rem 1rem; font-size: 0.95rem; }
+      .nav-cta { margin: 0.4rem auto; display: inline-block; width: auto; }
       .location-grid { grid-template-columns: 1fr; }
       .hero { padding: 90px 5% 50px; }
       .gallery {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
+        grid-auto-rows: 180px;
       }
-      .gallery-item:first-child { grid-row: span 1; grid-column: span 2; }
+      .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+      .gallery-item:nth-child(6) { grid-column: span 1; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 5% 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -403,7 +550,8 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo"><img src="img/logo.png" alt="BayOne Auto Shop" /></a>
-    <ul class="nav-links">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links" id="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#why">Why Us</a></li>
       <li><a href="#location">Location</a></li>
@@ -569,7 +717,7 @@
 
       <div class="map-frame">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.4!2d-0.152!3d5.618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zBayOne+Auto+Workshop!5e0!3m2!1sen!2sgh!4v1"
+          src="https://www.google.com/maps?q=Dzanifio+Street,+Bawleshie,+East+Legon,+Accra,+Ghana&output=embed"
           allowfullscreen loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
@@ -603,11 +751,72 @@
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <p><strong>BayOne Auto Shop</strong> · <em>Your Car Deserves Better.</em></p>
-    <p style="margin-top:0.4rem;">Bawleshie, East Legon, Accra &nbsp;·&nbsp; +233 555 066 066</p>
-    <p style="margin-top:0.5rem;">© 2026 BayOne Auto Shop. All rights reserved.</p>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="img/logo.png" alt="BayOne Auto Shop" />
+      <p>Professional vehicle repairs, auto electrical, bodyworks, detailing and more. Serving East Legon, Accra since day one.</p>
+      <div class="footer-social">
+        <a href="https://wa.me/233555066066" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/bayoneautoshop" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/bayoneautoshop" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why BayOne</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <div class="footer-contact-item">
+        <i class="fa-solid fa-phone"></i>
+        <a href="tel:+233555066066">+233 555 066 066</a>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fa-brands fa-whatsapp"></i>
+        <a href="https://wa.me/233555066066" target="_blank">Chat on WhatsApp</a>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>Dzanifio St, Bawleshie<br />East Legon, Accra</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fa-solid fa-clock"></i>
+        <span>Mon – Sat: 7:00 AM – 6:00 PM</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-bottom">
+    <p>© 2026 <strong>BayOne Auto Shop</strong>. All rights reserved.</p>
+    <p class="slogan">Your Car Deserves <em>Better.</em></p>
   </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      const icon = hamburger.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-xmark');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        const icon = hamburger.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-xmark');
+      });
+    });
+  </script>
 
 </body>
 </html>
