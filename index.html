@@ -7,7 +7,7 @@
   <meta name="description" content="BayOne Auto Shop — Your Car Deserves Better. Professional vehicle repairs, auto electrical, bodyworks, detailing and more in East Legon, Accra." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Russo+One&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -375,7 +375,12 @@
     }
 
     .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-    .gallery-item:nth-child(6) { grid-column: span 2; }
+    .gallery-item:nth-child(6) { grid-column: span 4; height: 200px; }
+
+    .brand-russo {
+      font-family: 'Russo One', sans-serif;
+      font-style: italic;
+    }
 
     .gallery-item img {
       width: 100%; height: 100%;
@@ -562,6 +567,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
+    <p class="hero-eyebrow brand-russo" style="font-size:1rem;letter-spacing:0.18em;">BayOne Auto Shop</p>
     <h1>Your Car<br />Deserves <span>Better.</span></h1>
     <p>Professional vehicle repairs, auto electrical, spray painting and more.</p>
     <div class="hero-actions">
