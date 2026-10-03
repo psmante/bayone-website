@@ -200,40 +200,80 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
     }
+    @media (max-width: 960px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px)  { .services-grid { grid-template-columns: 1fr; } }
 
     .service-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 2rem;
+      overflow: hidden;
       transition: box-shadow 0.2s, transform 0.2s;
     }
 
     .service-card:hover {
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      transform: translateY(-3px);
     }
 
-    .service-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--accent);
+    .service-card-img {
+      position: relative;
+      height: 170px;
+      overflow: hidden;
     }
 
-    .service-card h3 {
-      font-size: 1.05rem;
+    .service-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s;
+    }
+
+    .service-card:hover .service-card-img img { transform: scale(1.04); }
+
+    .service-icon-badge {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      width: 42px;
+      height: 42px;
+      background: var(--accent);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.1rem;
+    }
+
+    .service-card-body {
+      padding: 1.1rem 1.2rem 1.3rem;
+    }
+
+    .service-card-body h3 {
+      font-size: 0.98rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
     }
 
-    .service-card p {
+    .service-card-body p {
       color: var(--grey);
-      font-size: 0.9rem;
-      line-height: 1.6;
+      font-size: 0.83rem;
+      line-height: 1.55;
+      margin: 0;
     }
+
+    /* ── OLD SERVICES (icon-only) — kept for easy revert ──
+    .service-card-old { background:var(--white);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:box-shadow .2s,transform .2s; }
+    .service-card-old:hover { box-shadow:0 8px 32px rgba(0,0,0,.08);transform:translateY(-2px); }
+    .service-icon-old { font-size:2.5rem;margin-bottom:1rem;color:var(--accent); }
+    .service-card-old h3 { font-size:1.05rem;font-weight:700;margin-bottom:.5rem; }
+    .service-card-old p { color:var(--grey);font-size:.9rem;line-height:1.6; }
+    ── END OLD ── */
 
     /* ── WHY ── */
     .why-grid {
@@ -583,52 +623,111 @@
     <p class="section-sub">From routine maintenance to complex repairs — our certified technicians handle it all.</p>
 
     <div class="services-grid">
+
       <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-wrench"></i></div>
-        <h3>General Mechanical Repairs</h3>
-        <p>Engine diagnostics, brakes, suspension, gearbox, clutch and all mechanical faults.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-bolt"></i></div>
-        <h3>Auto Electrical</h3>
-        <p>Wiring, battery, alternator, starter motor, ECU diagnostics and all electrical systems.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div>
-        <h3>Bodyworks & Spraying</h3>
-        <p>Panel beating, dent removal, full resprays and high-quality body finishing.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" style="vertical-align:middle;">
-            <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="3.5"/>
-            <circle cx="12" cy="12" r="4.5"/>
-          </svg>
+        <div class="service-card-img">
+          <img src="https://images.pexels.com/photos/8985714/pexels-photo-8985714.jpeg?auto=compress&cs=tinysrgb&w=600" alt="General Mechanical Repairs" loading="lazy">
+          <div class="service-icon-badge"><i class="fa-solid fa-wrench"></i></div>
         </div>
-        <h3>Tyres & Vulcanizing</h3>
-        <p>Tyre fitting, balancing, rotation, patching and all tyre-related services.</p>
+        <div class="service-card-body">
+          <h3>General Mechanical Repairs</h3>
+          <p>Engine diagnostics, brakes, suspension, gearbox, clutch and all mechanical faults.</p>
+        </div>
       </div>
+
       <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-couch"></i></div>
-        <h3>Upholstery</h3>
-        <p>Seat repairs, interior retrimming and custom upholstery work.</p>
+        <div class="service-card-img">
+          <img src="https://images.pexels.com/photos/34054464/pexels-photo-34054464.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Auto Electrical" loading="lazy">
+          <div class="service-icon-badge"><i class="fa-solid fa-bolt"></i></div>
+        </div>
+        <div class="service-card-body">
+          <h3>Auto Electrical</h3>
+          <p>Wiring, battery, alternator, starter motor, ECU diagnostics and all electrical systems.</p>
+        </div>
       </div>
+
       <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-        <h3>Detailing & Polishing</h3>
-        <p>Full interior and exterior detailing, machine polishing and paint correction.</p>
+        <div class="service-card-img">
+          <img src="https://images.pexels.com/photos/6870314/pexels-photo-6870314.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Bodyworks and Spraying" loading="lazy">
+          <div class="service-icon-badge"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+        </div>
+        <div class="service-card-body">
+          <h3>Bodyworks & Spraying</h3>
+          <p>Panel beating, dent removal, full resprays and high-quality body finishing.</p>
+        </div>
       </div>
+
       <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-store"></i></div>
-        <h3>Car Parts Shop</h3>
-        <p>Quality OEM and aftermarket parts — sourced, stocked and fitted by our team.</p>
+        <div class="service-card-img">
+          <img src="https://images.pexels.com/photos/3807695/pexels-photo-3807695.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tyres and Vulcanizing" loading="lazy">
+          <div class="service-icon-badge">
+            <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="3.5"/><circle cx="12" cy="12" r="4.5"/></svg>
+          </div>
+        </div>
+        <div class="service-card-body">
+          <h3>Tyres & Vulcanizing</h3>
+          <p>Tyre fitting, balancing, rotation, patching and all tyre-related services.</p>
+        </div>
       </div>
+
       <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-snowflake"></i></div>
-        <h3>Air Conditioning</h3>
-        <p>AC regas, leak diagnosis, compressor repairs and full system servicing.</p>
+        <div class="service-card-img">
+          <img src="https://images.pexels.com/photos/12173186/pexels-photo-12173186.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Upholstery" loading="lazy">
+          <div class="service-icon-badge"><i class="fa-solid fa-couch"></i></div>
+        </div>
+        <div class="service-card-body">
+          <h3>Upholstery</h3>
+          <p>Seat repairs, interior retrimming and custom upholstery work.</p>
+        </div>
       </div>
+
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="https://images.pexels.com/photos/5233261/pexels-photo-5233261.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Detailing and Polishing" loading="lazy">
+          <div class="service-icon-badge"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        </div>
+        <div class="service-card-body">
+          <h3>Detailing & Polishing</h3>
+          <p>Full interior and exterior detailing, machine polishing and paint correction.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="https://images.pexels.com/photos/12555010/pexels-photo-12555010.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Car Parts Shop" loading="lazy">
+          <div class="service-icon-badge"><i class="fa-solid fa-store"></i></div>
+        </div>
+        <div class="service-card-body">
+          <h3>Car Parts Shop</h3>
+          <p>Quality OEM and aftermarket parts — sourced, stocked and fitted by our team.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="https://images.pexels.com/photos/6130/pexels-photo-6130.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Air Conditioning" loading="lazy">
+          <div class="service-icon-badge"><i class="fa-solid fa-snowflake"></i></div>
+        </div>
+        <div class="service-card-body">
+          <h3>Air Conditioning</h3>
+          <p>AC regas, leak diagnosis, compressor repairs and full system servicing.</p>
+        </div>
+      </div>
+
     </div>
+
+    <!-- OLD SERVICES (icon-only) — uncomment to revert
+    <div class="services-grid">
+      <div class="service-card-old"><div class="service-icon-old"><i class="fa-solid fa-wrench"></i></div><h3>General Mechanical Repairs</h3><p>Engine diagnostics, brakes, suspension, gearbox, clutch and all mechanical faults.</p></div>
+      <div class="service-card-old"><div class="service-icon-old"><i class="fa-solid fa-bolt"></i></div><h3>Auto Electrical</h3><p>Wiring, battery, alternator, starter motor, ECU diagnostics and all electrical systems.</p></div>
+      <div class="service-card-old"><div class="service-icon-old"><i class="fa-solid fa-spray-can-sparkles"></i></div><h3>Bodyworks & Spraying</h3><p>Panel beating, dent removal, full resprays and high-quality body finishing.</p></div>
+      <div class="service-card-old"><div class="service-icon-old"><i class="fa-solid fa-couch"></i></div><h3>Tyres & Vulcanizing</h3><p>Tyre fitting, balancing, rotation, patching and all tyre-related services.</p></div>
+      <div class="service-card-old"><div class="service-icon-old"><i class="fa-solid fa-couch"></i></div><h3>Upholstery</h3><p>Seat repairs, interior retrimming and custom upholstery work.</p></div>
+      <div class="service-card-old"><div class="service-icon-old"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h3>Detailing & Polishing</h3><p>Full interior and exterior detailing, machine polishing and paint correction.</p></div>
+      <div class="service-card-old"><div class="service-icon-old"><i class="fa-solid fa-store"></i></div><h3>Car Parts Shop</h3><p>Quality OEM and aftermarket parts — sourced, stocked and fitted by our team.</p></div>
+      <div class="service-card-old"><div class="service-icon-old"><i class="fa-solid fa-snowflake"></i></div><h3>Air Conditioning</h3><p>AC regas, leak diagnosis, compressor repairs and full system servicing.</p></div>
+    </div>
+    END OLD SERVICES -->
   </section>
 
   <!-- WHY US -->
