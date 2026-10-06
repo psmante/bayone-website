@@ -207,20 +207,28 @@
     .service-card {
       background: var(--white);
       border: 1px solid var(--border);
+      border-top: 3px solid var(--accent);
       border-radius: 12px;
       padding: 2rem;
       transition: box-shadow 0.2s, transform 0.2s;
     }
 
     .service-card:hover {
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(230,57,70,0.12);
+      transform: translateY(-3px);
     }
 
     .service-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--accent);
+      width: 56px;
+      height: 56px;
+      background: var(--accent);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+      color: #fff;
+      font-size: 1.4rem;
     }
 
     .service-card h3 {
