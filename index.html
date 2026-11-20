@@ -612,6 +612,133 @@
 
     .footer-bottom .slogan em { color: var(--accent); font-style: normal; }
 
+    /* ── PARTS SHOP ── */
+    #parts { background: var(--black); color: var(--white); }
+    #parts .section-title { color: var(--white); }
+    #parts .section-sub { color: rgba(255,255,255,0.55); }
+
+    .parts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .parts-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .parts-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .parts-card.featured {
+      border-color: var(--accent);
+      background: rgba(230,57,70,0.07);
+    }
+
+    .parts-card.featured:hover {
+      background: rgba(230,57,70,0.12);
+    }
+
+    .parts-card-icon {
+      font-size: 2.25rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .parts-card-icon svg {
+      width: 2.25rem;
+      height: 2.25rem;
+      stroke: var(--accent);
+    }
+
+    .parts-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .parts-card .parts-brands {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .parts-card p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .parts-card.featured h3, .parts-card.featured p { }
+
+    .parts-featured-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+
+    .parts-cta-block {
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .parts-cta-block p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .parts-cta-block p span {
+      display: block;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.875rem;
+      font-weight: 400;
+      margin-top: 0.25rem;
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: var(--white);
+      padding: 0.875rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+
+    .btn-whatsapp:hover { opacity: 0.9; }
+
     /* ── HAMBURGER ── */
     .hamburger {
       display: none;
@@ -654,6 +781,8 @@
       .hero-bg { background-position: 80% center; }
       .footer-top { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 5% 2rem; }
       .footer-bottom { flex-direction: column; text-align: center; }
+      .parts-grid { grid-template-columns: 1fr; }
+      .parts-cta-block { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -665,6 +794,7 @@
     <button class="hamburger" id="hamburger" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
     <ul class="nav-links" id="nav-links">
       <li><a href="#services">Services</a></li>
+      <li><a href="#parts">Parts Shop</a></li>
       <li><a href="#why">Why Us</a></li>
       <li><a href="#location">Location</a></li>
       <li><a href="https://wa.me/233555066066" target="_blank" class="nav-cta">WhatsApp Us</a></li>
@@ -815,6 +945,62 @@
         <h3>Rim Repair &amp; Restoration</h3>
         <p>Straightening, welding, refurbishing and repainting alloy and steel rims back to factory condition.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- PARTS SHOP -->
+  <section id="parts">
+    <p class="section-label">CAR PARTS SHOP</p>
+    <h2 class="section-title">Parts for Every Car,<br />Every Budget.</h2>
+    <p class="section-sub">New, genuine and quality used parts — in stock and ready to fit. We supply and install.</p>
+
+    <div class="parts-grid">
+      <div class="parts-card">
+        <div class="parts-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </div>
+        <h3>New Parts</h3>
+        <p class="parts-brands">Toyota · Honda · Hyundai · Kia · Nissan · and more</p>
+        <p>Genuine and aftermarket new parts for all popular brands on the Ghanaian market. Engine, electrical, body, brakes, suspension and more.</p>
+      </div>
+
+      <div class="parts-card featured">
+        <span class="parts-featured-badge">Jetour Specialist</span>
+        <div class="parts-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3>Jetour T1 &amp; T2 — Full Coverage</h3>
+        <p class="parts-brands">Engines · Body Parts · Suspension · Electrical · Interior</p>
+        <p>One of the few dedicated Jetour parts suppliers in Ghana. We stock a comprehensive range for the T1 and T2 — from engines to body panels.</p>
+      </div>
+
+      <div class="parts-card">
+        <div class="parts-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        </div>
+        <h3>Quality Used Parts</h3>
+        <p class="parts-brands">Toyota · Honda · Hyundai · Kia · Nissan · and more</p>
+        <p>Tested, quality second-hand parts for popular brands. Great working condition, honestly priced — ideal when you need a reliable fix at a lower cost.</p>
+      </div>
+
+      <div class="parts-card">
+        <div class="parts-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="22"/><line x1="2" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="14.83" y2="9.17"/><line x1="9.17" y1="14.83" x2="4.93" y2="19.07"/></svg>
+        </div>
+        <h3>Tyres — New &amp; Used</h3>
+        <p class="parts-brands">All Sizes · All Brands · Fitting Included</p>
+        <p>New and used tyres for all vehicle types. We fit and balance on the spot — no need to go anywhere else.</p>
+      </div>
+    </div>
+
+    <div class="parts-cta-block">
+      <div>
+        <p>Can't find what you need?</p>
+        <p><span>Get in touch — we've got you covered.</span></p>
+      </div>
+      <a href="https://wa.me/233555066066?text=Hello%20Mic-Nak%20Motors%2C%20I%20am%20looking%20for%20a%20car%20part." target="_blank" class="btn-whatsapp">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+      </a>
     </div>
   </section>
 
@@ -980,6 +1166,7 @@
       <h5>Quick Links</h5>
       <ul>
         <li><a href="#services">Services</a></li>
+        <li><a href="#parts">Parts Shop</a></li>
         <li><a href="#why">Why Mic-Nak</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#location">Location</a></li>
